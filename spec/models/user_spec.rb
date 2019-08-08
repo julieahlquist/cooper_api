@@ -13,11 +13,11 @@ RSpec.describe User, type: :model do
     it { is_expected.to have_db_column :reset_password_token }
     it { is_expected.to have_db_column :reset_password_sent_at }
     it { is_expected.to have_db_column :remember_created_at }
-    # it { is_expected.to have_db_column :sign_in_count }
-    # it { is_expected.to have_db_column :current_sign_in_at }
-    # it { is_expected.to have_db_column :last_sign_in_at }
-    # it { is_expected.to have_db_column :current_sign_in_ip }
-    # it { is_expected.to have_db_column :last_sign_in_ip }
+    it { is_expected.to have_db_column :sign_in_count }
+    it { is_expected.to have_db_column :current_sign_in_at }
+    it { is_expected.to have_db_column :last_sign_in_at }
+    it { is_expected.to have_db_column :current_sign_in_ip }
+    it { is_expected.to have_db_column :last_sign_in_ip }
     it { is_expected.to have_db_column :confirmation_token }
     it { is_expected.to have_db_column :confirmed_at }
     it { is_expected.to have_db_column :confirmation_sent_at }
@@ -50,6 +50,10 @@ RSpec.describe User, type: :model do
       emails.each do |email|
       it { is_expected.to allow_value(email).for(:email) }
       end
+    end
+
+    describe 'Relations' do
+      it { is_expected.to have_many :performance_data }
     end
   end
 end
