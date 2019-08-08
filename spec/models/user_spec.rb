@@ -48,7 +48,7 @@ RSpec.describe User, type: :model do
                 'adsf@example.eu']
 
       emails.each do |email|
-      it { is_expected.to allow_value(email).for (:email) }
+      it { is_expected.to allow_value(email).for(:email) }
       end
     end
   end
